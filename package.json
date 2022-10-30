@@ -3,13 +3,21 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "blitz dev",
+    "dev-debug": "NODE_OPTIONS='--inspect' blitz dev",
     "build": "blitz build",
     "start": "blitz start",
+    "start:production": "blitz start --port $PORT",
     "studio": "blitz prisma studio",
+    "prisma:migrate": "blitz prisma migrate dev",
+    "prisma:push": "blitz prisma db push",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "jest",
+    "test:prepare": "NODE_ENV=test blitz prisma db push",
     "test:watch": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:favicon": "real-favicon generate faviconDescription.json faviconData.json public",
+    "docker:up": "docker compose up -d",
+    "postinstall": "blitz prisma generate"
   },
   "prisma": {
     "schema": "db/schema.prisma"
@@ -27,9 +35,13 @@
     "@blitzjs/auth": "2.0.0-beta.13",
     "@blitzjs/next": "2.0.0-beta.13",
     "@blitzjs/rpc": "2.0.0-beta.13",
+    "@chakra-ui/react": "2.3.6",
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
     "@prisma/client": "4.0.0",
     "blitz": "2.0.0-beta.13",
     "final-form": "4.20.7",
+    "framer-motion": "7.6.2",
     "next": "12.2.5",
     "prisma": "4.0.0",
     "react": "18.2.0",

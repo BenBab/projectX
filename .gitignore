@@ -24,8 +24,8 @@ blitz-log.log
 
 # local env files
 .env.local
-.env.test
 .env.*.local
+.env.production
 .envrc
 
 # Logs
