@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: projectx
+    env: node
+    plan: free
+    buildCommand: yarn --frozen-lockfile --prod=false &&
+      blitz prisma generate &&
+      blitz build &&
+      blitz prisma migrate deploy
+    startCommand: blitz start -p ${PORT}
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: projectx-db
+          property: connectionString
+      - key: SESSION_SECRET_KEY
+        generateValue: true
+
+databases:
+  - name: projectx-db
+    plan: free
