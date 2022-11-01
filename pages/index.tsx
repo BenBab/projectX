@@ -7,6 +7,7 @@ import logout from "app/auth/mutations/logout"
 import logo from "public/logo.png"
 import { useMutation } from "@blitzjs/rpc"
 import { Routes, BlitzPage } from "@blitzjs/next"
+import WrappedProducts from "app/products/components/products"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -58,6 +59,7 @@ const Home: BlitzPage = () => {
     <Layout title="Home">
       <div className="container">
         <main>
+          <WrappedProducts />
           <div className="logo">
             <Image src={`${logo.src}`} alt="blitzjs" width="256px" height="118px" layout="fixed" />
           </div>

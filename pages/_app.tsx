@@ -26,6 +26,7 @@ function RootErrorFallback({ error }: ErrorFallbackProps) {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
+
   return (
     <ChakraProvider>
       <ErrorBoundary FallbackComponent={RootErrorFallback}>
